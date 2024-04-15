@@ -1,7 +1,10 @@
-const { app, BrowserWindow, ipcMain, ipcRenderer } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const MainScreen = require("./screens/main/mainScreen");
-const Globals = require("./globals");
-const { autoUpdater, AppUpdater } = require("electron-updater");
+const { autoUpdater } = require("electron-updater");
+const log = require("electron-log");
+const path = require("path");
+
+log.transports.file.resolvePathFn = () => path.join("E:/wamp/www/laravel/electron-autoupdater-main/electron-autoupdater-main/app/dist", 'logs/main.log');
 
 let curWindow;
 

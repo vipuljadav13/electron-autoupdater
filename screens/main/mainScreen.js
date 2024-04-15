@@ -34,10 +34,6 @@ class MainScreen {
     });
 
     this.handleMessages();
-
-    let wc = this.window.webContents;
-    wc.openDevTools({ mode: "undocked" });
-
     this.window.loadFile("./screens/main/main.html");
   }
 
