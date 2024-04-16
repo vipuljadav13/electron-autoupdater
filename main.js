@@ -11,6 +11,8 @@ let curWindow;
 //Basic flags
 autoUpdater.autoDownload = false;
 autoUpdater.autoInstallOnAppQuit = true;
+// Auto update feature
+// autoUpdater.requestHeaders = {"PRIVATE-TOKEN": "glpat-ifyYWy3tWUycq2zxXVEG"};
 
 function createWindow() {
   curWindow = new MainScreen();
@@ -45,6 +47,7 @@ autoUpdater.on("update-downloaded", (info) => {
 
 autoUpdater.on("error", (info) => {
   curWindow.showMessage(info);
+  log.info(info);
 });
 
 
@@ -53,6 +56,8 @@ autoUpdater.on("error", (info) => {
 //Global exception handler
 process.on("uncaughtException", function (err) {
   console.log(err);
+  log.info('---------');
+  log.info(err);
 });
 
 app.on("window-all-closed", function () {

@@ -1,6 +1,6 @@
 {
   "name": "electron-app",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "My test electron app",
   "main": "main.js",
   "scripts": {
@@ -9,16 +9,29 @@
     "start": "electron .",
     "dist": "electron-builder"
   },
-  "repository": "https://github.com/vipuljadav13/electron-autoupdater",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vipuljadav13/electron-autoupdater"
+  },
   "publish": {
     "provider": "github",
     "releaseType": "release"
   },
   "build": {
-    "appId": "com.coderjeet.autoupdater",
+    "appId": "com.eSparkbiz.autoupdater",
     "productName": "Autoupdater app",
     "win": {
-      "target": "nsis"
+      "target": [
+        "nsis"
+      ],
+      "verifyUpdateCodeSignature": false,
+      "icon": "favicon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "deleteAppDataOnUninstall": true,
+      "allowToChangeInstallationDirectory": true
     },
     "linux": {
       "target": [
@@ -29,7 +42,7 @@
       "output": "dist"
     }
   },
-  "author": "CoderJeet",
+  "author": "eSparkbiz",
   "license": "ISC",
   "devDependencies": {
     "electron": "^19.0.9",
